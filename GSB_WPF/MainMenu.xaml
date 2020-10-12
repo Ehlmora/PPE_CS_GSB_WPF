@@ -1,0 +1,54 @@
+﻿<Window x:Class="GSB_WPF.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GSB_WPF"
+        mc:Ignorable="d"
+        Title="MainMenu" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <TabControl Name="tclMainMenu">
+            <TabItem x:Name="timReport" Header="Comptes-rendus" Style="{DynamicResource MaterialDesignNavigationRailTabItem}">
+                <Grid Background="#FFE5E5E5">
+                    <ToolBar HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="{Binding ElementName=tclMainMenu, Path=ActualWidth}" Grid.ColumnSpan="3">
+                        <Button x:Name="btnNewReport" Content="Nouveau" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignToolButton}" Click="btnNewReport_Click"/>
+                        <Button x:Name="btnRemoveReport" Content="Supprimer" Style="{DynamicResource MaterialDesignToolButton}"/>
+                        <TextBox x:Name="tbxVisitorMatricule" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                    </ToolBar>
+                    <DataGrid x:Name="dgdReports" Margin="0,37,0,0" Grid.ColumnSpan="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#Visiteur" x:Name="dgtcVisitorID" Binding="{Binding IdVisitor}"/>
+                            <DataGridTextColumn Header="#ID" x:Name="dgtcReportID" Binding="{Binding IdReport}"/>
+                            <DataGridTextColumn Header="Praticien" x:Name="dgtcPractitioner" Binding="{Binding IdPractitioner}"/>
+                            <DataGridTextColumn Header="Date de Visite" x:Name="dgtcVisiteDate" Binding="{Binding VisiteDate}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="timContributor" Header="Collaborateurs" Style="{DynamicResource MaterialDesignNavigationRailTabItem}">
+                <Grid Background="#FFE5E5E5">
+                    <ToolBar HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=tclMainMenu}">
+                        <Button x:Name="btnNewContributor" Content="Nouveau" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Button x:Name="btnRemoveContributor" Content="Supprimer"/>
+                        <TextBox x:Name="tbxVisitorMatricule1" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                    </ToolBar>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="timPractitioners" Header="Praticiens" Style="{DynamicResource MaterialDesignNavigationRailTabItem}">
+                <ToolBar HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=tclMainMenu}">
+                    <Button x:Name="btnNewPractitioner" Content="Nouveau" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button x:Name="btnRemovePractitioner" Content="Supprimer"/>
+                    <TextBox x:Name="tbxVisitorMatricule2" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                </ToolBar>
+            </TabItem>
+            <TabItem x:Name="timMedicines" Header="Médicaments" Style="{DynamicResource MaterialDesignNavigationRailTabItem}">
+                <ToolBar HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=tclMainMenu}">
+                    <Button x:Name="btnNewMedicine" Content="Nouveau" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button x:Name="btnRemoveMedicine" Content="Supprimer"/>
+                    <TextBox x:Name="tbxVisitorMatricule3" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+                </ToolBar>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
